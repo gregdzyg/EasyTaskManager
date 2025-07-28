@@ -10,11 +10,10 @@ function Home(){
     const [tasks, setTasks] = useState([]);
     // Fetches a quote from an external API on component mount
     useEffect(() => {
-        fetch("https://quotes.rest/qod").then(res => res.json()
+        fetch("https://api.quotable.io/random").then(res => res.json()
         .then(data => {
-            const q = data.contents.quotes[0];
-            setQuote(q.quote);
-            setAuthor(q.author);
+            setQuote(data.content);
+            setAuthor(data.author);
         }
         )).catch((err) => {console.error("Error fetching quote", err)});
     }, []);
