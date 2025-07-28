@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Create Navbar component",
+    "text": "Build a responsive navigation bar in React using Bootstrap.",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "title": "Connect backend with frontend",
+    "text": "Use fetch() to get tasks from the Spring Boot backend.",
+    "completed": true
+  },
+  {
+    "id": 3,
+    "title": "Handle API errors on frontend",
+    "text": "Show user-friendly error messages when fetch fails.",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "title": "Implement dark mode",
+    "text": "Use React Context API to toggle between light and dark theme.",
+    "completed": true
+  },
+  {
+    "id": 5,
+    "title": "Build RESTful API",
+    "text": "Create GET, POST, PUT, DELETE endpoints in Spring Boot.",
+    "completed": true
+  },
+  {
+    "id": 6,
+    "title": "Add form validation",
+    "text": "Check if input fields are not empty before submitting.",
+    "completed": false
+  },
+  {
+    "id": 7,
+    "title": "Enable task editing",
+    "text": "Allow users to edit existing tasks through the form.",
+    "completed": true
+  },
+  {
+    "id": 8,
+    "title": "Integrate quote API",
+    "text": "Fetch and display a daily motivational quote on the home page.",
+    "completed": false
+  },
+  {
+    "id": 9,
+    "title": "Style task list",
+    "text": "Improve spacing, contrast and responsiveness of task items.",
+    "completed": true
+  },
+  {
+    "id": 10,
+    "title": "Optimize components",
+    "text": "Refactor code for clarity and remove unused styles.",
+    "completed": false
+  },
+  {
+    "id": 11,
+    "title": "Test app locally",
+    "text": "Verify full functionality on localhost before publishing.",
+    "completed": true
+  },
+  {
+    "id": 12,
+    "title": "Add click transition",
+    "text": "Animate task selection using CSS or Bootstrap effects.",
+    "completed": false
+  },
+  {
+    "id": 13,
+    "title": "Ensure accessibility",
+    "text": "Make sure the app works with keyboard navigation and screen readers.",
+    "completed": false
+  },
+  {
+    "id": 14,
+    "title": "Add favicon and meta tags",
+    "text": "Include icon, page description and SEO keywords in HTML head.",
+    "completed": false
+  },
+  {
+    "id": 15,
+    "title": "Create README.md",
+    "text": "Include project description, tech stack and setup instructions.",
+    "completed": false
+  }
+]

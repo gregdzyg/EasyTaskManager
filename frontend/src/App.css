@@ -1,0 +1,26 @@
+.short-border {
+    border-bottom: 1px solid rgba(255, 255 , 255, 0.3);
+    width: 85%;
+    margin: 0 auto;
+}
+
+.footer-border {
+    border-top: 1px solid rgba(255, 255 , 255, 0.3);
+    width: 85%;
+    margin: 0 auto;
+}
+
+.content-border {
+    border-bottom: 1px solid rgba(255, 255 , 255, 0.3);
+    width: 85vw;
+    margin: 0 auto;
+    
+    
+
+}
+.scale-selected {
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+  text-decoration: underline;
+  border-radius: 8px;
+}
