@@ -86,9 +86,47 @@ EasyTaskManager/
 └── README.md             # Project overview and instructions
 ```
 
+> ⚠️ Note for local development:
+> 
+> If you want to run the frontend and backend separately (e.g. Vite on `localhost:5173` and Spring Boot on `localhost:8080`), you will need to modify the fetch URLs in your React components.
+> 
+> Replace:
+> ```js
+> fetch("/tasks")
+> ```
+> With:
+> ```js
+> fetch("http://localhost:8080/tasks")
+> ```
+> This is necessary for local development.
+
+---
+
+## 🚧 Known Limitations
+
+- 🔄 **Temporary Data Storage**  
+  Currently, tasks are stored in a local `.json` file, which means changes are not persisted when using the hosted Railway version.
+  For full functionality (including saving), run the project locally.
+  In the next version, a persistent PostgreSQL database will be integrated.
+
+- 🔐 **Quote API limitations**  
+  Due to CORS restrictions, the daily quote feature may not work properly in some browsers (e.g., Safari).  
+  In Chrome and on most mobile devices it works as intended.
+
+---
+
+## 📌 Changelog
+
+- ✅ Integrated frontend (React build) with backend (Spring Boot)
+- ✅ Updated fetch paths to support unified deployment (`/tasks`, `/quotes`)
+- ✅ Applied global CSS fixes to ensure mobile responsiveness after build
+- ✅ Hosted project on Railway for public access
+
+### 🔗 Live Demo [🌐 EasyTaskManager on Railway (read-only)](https://easytaskmanager-production.up.railway.app)
+
 ## 🧑‍💻 Author
 
-**Grzegorz Dzyg** – Computer Science student, WSB-NLU, 2025  
+**Grzegorz Dzyg** – Computer Science student at WSB-NLU, 2025  
 Built as part of academic portfolio & real-world experience.
 
 ## 📜 License
