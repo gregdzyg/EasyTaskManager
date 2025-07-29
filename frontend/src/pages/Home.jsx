@@ -19,7 +19,7 @@ function Home(){
     }, []);
     // Fetches tasks from the backend, reverses the list and selects the latest 5
     useEffect(() => {
-        fetch("http://localhost:8080/tasks").then(res => res.json()
+        fetch("/tasks").then(res => res.json()
         .then(data => {
             const latestTasks = [...data].reverse().slice(0, 5);
             setTasks(latestTasks);

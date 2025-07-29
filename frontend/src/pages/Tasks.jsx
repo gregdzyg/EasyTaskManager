@@ -8,7 +8,7 @@ function Tasks(){
     const [selectedTaskId, setSelectedTaskId] = useState(null);
     // Fetches list of tasks from the backend on component mount
     useEffect(() => {
-        fetch("http://localhost:8080/tasks").then(res => res.json())
+        fetch("/tasks").then(res => res.json())
         .then((data) => { setTasks(data)})
         .catch((error) => console.error("Failed fetching tasks", error));
     }, []);
@@ -24,7 +24,7 @@ function Tasks(){
             completed: !taskToUpdate.completed
         };
 
-        fetch(`http://localhost:8080/tasks/${selectedTaskId}`, { method: "PUT", headers: {"Content-Type": "application/json"},
+        fetch(`/tasks/${selectedTaskId}`, { method: "PUT", headers: {"Content-Type": "application/json"},
             body: JSON.stringify(updatedTask)
         }).then((response) => {if(!response.ok) {throw new Error("Failed to update task");
 
@@ -42,7 +42,7 @@ function Tasks(){
         const taskToDelete = tasks.find(task => task.id === selectedTaskId);
         if(!taskToDelete) return;
 
-        fetch(`http://localhost:8080/tasks/${selectedTaskId}`, {method: "DELETE", headers: {"Content-Type": "application/json"},
+        fetch(`/tasks/${selectedTaskId}`, {method: "DELETE", headers: {"Content-Type": "application/json"},
         }).then((response) => {
             if(!response.ok){
                 throw new Error("Failed to delete task.");

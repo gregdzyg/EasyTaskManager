@@ -17,7 +17,7 @@ function New() {
             return;
         }
         // Sends a new task to the backend via POST
-        fetch("http://localhost:8080/tasks", {method: "POST", headers: {"Content-Type": "application/json"},
+        fetch("/tasks", {method: "POST", headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
                     title: title,
                     text: description,
