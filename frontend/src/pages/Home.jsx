@@ -9,17 +9,26 @@ function Home(){
     const [author, setAuthor] = useState("");
     const [tasks, setTasks] = useState([]);
     // Fetches a quote from an external API on component mount
-    useEffect(() => {
-        fetch("https://api.quotable.io/random").then(res => res.json()
-        .then(data => {
-            setQuote(data.content);
-            setAuthor(data.author);
-        }
-        )).catch((err) => {console.error("Error fetching quote", err)});
-    }, []);
+   useEffect(() => {
+        fetch("/api/quote")
+            .then(res => {
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return res.json();
+            })
+            .then(data => {
+            const item = Array.isArray(data) && data.length ? data[0] : null;
+            setQuote(item?.q ?? "No quote available right now.");
+            setAuthor(item?.a ?? "");
+            })
+            .catch(err => {
+            console.error("Error fetching quote", err);
+            setQuote("No quote available right now.");
+             setAuthor("");
+         }) ;
+},  []);
     // Fetches tasks from the backend, reverses the list and selects the latest 5
     useEffect(() => {
-        fetch("/tasks").then(res => res.json()
+        fetch("/api/tasks").then(res => res.json()
         .then(data => {
             const latestTasks = [...data].reverse().slice(0, 5);
             setTasks(latestTasks);
@@ -33,10 +42,10 @@ function Home(){
             <h5>Welcome to our task manager.</h5>
             <h6 className="mt-3">Here's your today's quote:</h6>
             {/* Blockquote with fetched quote*/}
-            <blockquote className="blockquote mt-2 bg-black text-white shadow-sm w-75 px-3" 
-            style={{maxWidth: "768px", fontSize: "0.9rem"}}>
-                <p>{quote}</p>
-                <footer className="blockquote-footer">{author}</footer>
+            <blockquote className="blockquote mt-2 bg-black text-white shadow-sm w-75 px-3" style={{maxWidth: "768px", fontSize: "0.9rem"}}>
+            <p className='mb-4'>{quote}</p>
+            {author && 
+            <footer className="blockquote-footer text-secondary">— {author}</footer>}
             </blockquote>
             {/* Separator */}
             <div

@@ -20,7 +20,10 @@ EasyTaskManager is a full-stack task management web application designed for sim
 - Spring Boot (REST API)
 - Spring Web
 - Spring DevTools
-- CORS configuration enabled
+- PostgreSQL (via Docker) as local database
+- Spring Data JPA + Hibernate for communication with DB
+
+
 
 ### Frontend:
 - React (functional components + Hooks)
@@ -28,6 +31,9 @@ EasyTaskManager is a full-stack task management web application designed for sim
 - Bootstrap 5 (React-Bootstrap)
 - React Router
 - Fetch API for backend integration
+
+
+
 
 ## 🚀 Getting Started
 
@@ -45,84 +51,34 @@ cd backend
 ./mvnw spring-boot:run
 ```
 
-Runs backend at: `http://localhost:8080`
+Frontend is built in a backend so full application runs at: `http://localhost:8080`
+*(Note: the frontend is bundled into the backend during build, but can also be run separately for development with `npm run dev`.)*
 
-### 3. Frontend Setup (React)
+## 📸 Screenshots
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+### Homepage
+![Homepage](docs/home.png)
+Homepage showing daily motivational quote and latest tasks.
 
-Runs frontend at: `http://localhost:5173`
-
-## 🌐 Deployment (optional)
-
-You can bundle frontend into static assets and serve them with Spring Boot using:
-
-```bash
-cd frontend
-npm run build
-```
-
-Then copy contents of `frontend/dist` into a `static` folder inside `backend/src/main/resources/`.
-
-## 📁 Folder Structure
-
-```
-EasyTaskManager/
-│
-├── backend/              # Spring Boot project
-│   └── src/
-│       └── main/
-│           └── java/...  # Java source code
-│           └── resources/static/  # For frontend build output
-│
-├── frontend/             # React project (Vite + Bootstrap)
-│   ├── src/
-│   └── public/
-│
-└── README.md             # Project overview and instructions
-```
-
-> ⚠️ Note for local development:
-> 
-> If you want to run the frontend and backend separately (e.g. Vite on `localhost:5173` and Spring Boot on `localhost:8080`), you will need to modify the fetch URLs in your React components.
-> 
-> Replace:
-> ```js
-> fetch("/tasks")
-> ```
-> With:
-> ```js
-> fetch("http://localhost:8080/tasks")
-> ```
-> This is necessary for local development.
-
----
-
-## 🚧 Known Limitations
-
-- 🔄 **Temporary Data Storage**  
-  Currently, tasks are stored in a local `.json` file, which means changes are not persisted when using the hosted Railway version.
-  For full functionality (including saving), run the project locally.
-  In the next version, a persistent PostgreSQL database will be integrated.
-
-- 🔐 **Quote API limitations**  
-  Due to CORS restrictions, the daily quote feature may not work properly in some browsers (e.g., Safari).  
-  In Chrome and on most mobile devices it works as intended.
-
----
+### Tasks List
+![Tasks List](docs/tasks.png)
+Tasks page with full tasks list and CRUD buttons below.
+![Tasks List](docs/done.png)
+List of all tasks with the first one selected and marked as done.
+### Add Task
+![Add Task](docs/new-task.png)
+Add new task page.
 
 ## 📌 Changelog
 
 - ✅ Integrated frontend (React build) with backend (Spring Boot)
 - ✅ Updated fetch paths to support unified deployment (`/tasks`, `/quotes`)
-- ✅ Applied global CSS fixes to ensure mobile responsiveness after build
-- ✅ Hosted project on Railway for public access
+- ✅ Applied global CSS fixes to ensure mobile responsiveness after build 
+- ✅ Prepared Railway deployment (currently inactive due to subscription)
+- ✅ Added local Postgres Database
+- ✅ Integrated application with database
+- ✅ Updated README.md with pictures
 
-### 🔗 Live Demo [🌐 EasyTaskManager on Railway (read-only)](https://easytaskmanager-production.up.railway.app)
 
 ## 🧑‍💻 Author
 

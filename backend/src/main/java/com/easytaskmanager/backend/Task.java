@@ -1,24 +1,31 @@
 package com.easytaskmanager.backend;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tasks")
 public class Task {
 
-    private int id;
-    private String title;
-    private boolean completed;
-    private String text;
-    //represents a single task
-    public Task( String title, String text){
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-        this.title = title;
-        this.completed = false;
-        this.text = text;
-    }
+    @Column(nullable = false)
+    private String title;
+
+    @Column(columnDefinition = "text")
+    private String text;
+
+    @Column(nullable = false)
+    private boolean completed;
+    //represents a single task
+
     public Task(){}
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setID(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getTitle() {

@@ -14,7 +14,7 @@ function Edit() {
 
     //Fetches the task data when component mounts
     useEffect(() => {
-        fetch(`/tasks/${id}`).then(res => {
+        fetch(`/api/tasks/${id}`).then(res => {
             if(!res.ok) {
                 throw new Error("Failed fetching a task");
             }
@@ -35,7 +35,7 @@ function Edit() {
             return;
         }
 
-        fetch(`/tasks/${id}`, {method: "PUT", headers: {"Content-Type": "application/json"},
+        fetch(`/api/tasks/${id}`, {method: "PUT", headers: {"Content-Type": "application/json"},
              body: JSON.stringify({
                 title: title,
                 text: description,
